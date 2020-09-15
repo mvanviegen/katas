@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello, {{ text }}
+    <pre class="given-text">Hello, {{ text }}</pre>
   </div>
 </template>
 

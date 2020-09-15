@@ -6,18 +6,18 @@ describe('Hello World', function () {
         var wrapper = shallowMount(HelloWorld, {
             propsData: { msg: msg },
         });
-        expect(wrapper.text()).toBe("Hello, You!");
+        expect(wrapper.element.getElementsByClassName('given-text')[0].textContent).toBe('Hello, You!');
     });
     it('should render correct string given parameter with typos', function () {
         var msg = 'aLIcE';
         var wrapper = shallowMount(HelloWorld, {
             propsData: { msg: msg },
         });
-        expect(wrapper.text()).toBe("Hello, Alice!");
+        expect(wrapper.text()).toBe('Hello, Alice!');
     });
     it('should render Hello World! given no parameter', function () {
         var wrapper = shallowMount(HelloWorld);
-        expect(wrapper.text()).toBe("Hello, World!");
+        expect(wrapper.text()).toBe('Hello, World!');
     });
 });
 //# sourceMappingURL=HelloWorld.spec.js.map
