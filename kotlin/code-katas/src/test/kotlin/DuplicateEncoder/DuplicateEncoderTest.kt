@@ -10,4 +10,10 @@ internal class DuplicateEncoderTest {
         val result = DuplicateEncoder().encode("din")
         assertThat(result).isEqualTo("(((")
     }
+
+    @Test
+    internal fun `should return ) for each letter given duplication within string`() {
+        val result = DuplicateEncoder().encode("dinN")
+        assertThat(result).isEqualTo("(())")
+    }
 }
