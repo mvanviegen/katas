@@ -25,19 +25,19 @@ class DuplicateEncoder(
 
     private fun verifyStringOccurence(
         stringOccurences: MutableMap<Char, Boolean>,
-        it: Char
+        character: Char
     ) =
-        if (!stringOccurences.containsKey(it)) {
-            stringOccurences.put(it, false)
+        if (!stringOccurences.containsKey(character)) {
+            stringOccurences.put(character, false)
         } else {
-            stringOccurences.put(it, true)
+            stringOccurences.put(character, true)
         }
 
     private fun evaluateCharacter(
         stringOccurences: MutableMap<Char, Boolean>,
-        it: Char
+        character: Char
     ) =
-        if (stringOccurences[it] == true) {
+        if (stringOccurences[character] == true) {
             ")"
         } else {
             "("
