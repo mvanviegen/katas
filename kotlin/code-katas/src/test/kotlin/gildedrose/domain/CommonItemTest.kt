@@ -28,12 +28,12 @@ internal class CommonItemTest {
 
         @Test
         internal fun `should decrease sell by days and quality by one`() {
-            val result = item.updateQuality()
+            item.updateQuality()
 
             assertAll {
-                assertThat(result.name).isEqualTo("Sword")
-                assertThat(result.sellIn).isEqualTo(14)
-                assertThat(result.quality).isEqualTo(9)
+                assertThat(item.name).isEqualTo("Sword")
+                assertThat(item.sellIn).isEqualTo(14)
+                assertThat(item.quality).isEqualTo(9)
             }
         }
     }

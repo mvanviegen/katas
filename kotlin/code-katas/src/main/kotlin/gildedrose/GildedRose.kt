@@ -9,6 +9,7 @@ class GildedRose(var items: Array<Item>) {
         for (item in items) {
             if(item is CommonItem) {
                 println("does this");
+                item.updateQuality()
             } else {
                 if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
                     if (item.quality > 0) {
