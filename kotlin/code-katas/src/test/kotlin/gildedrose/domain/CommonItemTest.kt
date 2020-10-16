@@ -38,5 +38,21 @@ internal class CommonItemTest {
 
             assertThat(item.quality).isEqualTo(0)
         }
+
+        @Test
+        internal fun `should not decrease quality below zero when sell in days has been reached`() {
+            val item = CommonItem("Sword", 0, 1)
+            item.update()
+
+            assertThat(item.quality).isEqualTo(0)
+        }
+
+        @Test
+        internal fun `should decrease quality in two given sell by days has been reached`() {
+            val item = CommonItem("Sword", 0, 10)
+            item.update()
+
+            assertThat(item.quality).isEqualTo(8)
+        }
     }
 }
