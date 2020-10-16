@@ -21,7 +21,7 @@ internal class CommonItemTest {
 
         @Test
         internal fun `should decrease sell by days and quality by one`() {
-            var item = CommonItem("Sword", 15, 1)
+            val item = CommonItem("Sword", 15, 1)
             item.update()
 
             assertAll {
@@ -33,7 +33,7 @@ internal class CommonItemTest {
 
         @Test
         internal fun `should not decrease quality below zero`() {
-            var item = CommonItem("Sword", 15, 0)
+            val item = CommonItem("Sword", 15, 0)
             item.update()
 
             assertThat(item.quality).isEqualTo(0)
