@@ -5,6 +5,7 @@ import assertk.assertThat
 import assertk.assertions.isEqualTo
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 internal class CommonItemTest {
     @Test
@@ -14,6 +15,15 @@ internal class CommonItemTest {
         assertThat(item.sellIn).isEqualTo(15)
         assertThat(item.quality).isEqualTo(10)
         assertThat(item.toString()).isEqualTo("Sword, 15, 10")
+    }
+
+    @Test
+    internal fun `should throw error given too high a quality`() {
+        val result = assertThrows<IllegalArgumentException> {
+            CommonItem("UltraLegendary", 1, 55)
+        }.message
+
+        assertThat(result).isEqualTo("Items cannot be of higher quality than 50!")
     }
 
     @Nested

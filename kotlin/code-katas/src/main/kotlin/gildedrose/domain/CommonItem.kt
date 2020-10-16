@@ -7,8 +7,15 @@ class CommonItem(
 ) : Item(name, sellIn, quality) {
   private val hasQuality = quality > 0
   private val hasExpired = sellIn <= 0
+  private val maxQuality = 50
   private val qualityHitOnExpiration = 2
   private val qualityHit = 1
+
+  init {
+    require(quality <= maxQuality) {
+      "Items cannot be of higher quality than 50!"
+    }
+  }
 
   fun update() {
     updateQuality()
