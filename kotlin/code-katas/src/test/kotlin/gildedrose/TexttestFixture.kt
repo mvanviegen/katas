@@ -2,6 +2,7 @@ package gildedrose
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import gildedrose.domain.CommonItem
 import gildedrose.domain.Item
 import org.junit.jupiter.api.Test
 
@@ -13,7 +14,7 @@ internal class TexttestFixture {
         var output = ""
 
         val items = arrayOf(
-            Item("+5 Dexterity Vest", 10, 20), //
+            CommonItem("+5 Dexterity Vest", 10, 20), //
             Item("Aged Brie", 2, 0), //
             Item("Elixir of the Mongoose", 5, 7), //
             Item("Sulfuras, Hand of Ragnaros", 0, 80), //
@@ -27,7 +28,7 @@ internal class TexttestFixture {
 
         val app = GildedRose(items)
 
-        var days = 2
+        val days = 2
 
         for (i in 0..days - 1) {
             println("-------- day $i --------")
