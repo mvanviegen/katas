@@ -1,5 +1,7 @@
 package gildedrose
 
+import gildedrose.domain.Item
+
 class GildedRose(var items: Array<Item>) {
 
     fun updateQuality() {
@@ -53,5 +55,4 @@ class GildedRose(var items: Array<Item>) {
             }
         }
     }
-
 }
