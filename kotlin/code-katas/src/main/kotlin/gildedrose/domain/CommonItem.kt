@@ -3,7 +3,7 @@ package gildedrose.domain
 class CommonItem(
   name: String,
   sellIn: Int,
-  quality: Int,
+  quality: Int
 ) : Item(name, sellIn, quality) {
   private val hasQuality = quality > 0
   private val hasExpired = sellIn <= 0
