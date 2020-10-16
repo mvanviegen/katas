@@ -8,6 +8,7 @@ class CommonItem(
   private val hasQuality = quality > 0
   private val hasExpired = sellIn <= 0
   private val qualityHitOnExpiration = 2
+  private val qualityHit = 1
 
   fun update() {
     updateQuality()
@@ -17,7 +18,7 @@ class CommonItem(
   private fun updateQuality() {
     if (!hasQuality) return
     else if (hasExpired) this.updateQualityAfterExpiration()
-    else quality -= 1
+    else quality -= qualityHit
   }
 
   private fun updateQualityAfterExpiration() {
