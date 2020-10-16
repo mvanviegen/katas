@@ -19,22 +19,25 @@ internal class CommonItemTest {
 
     @Nested
     inner class UpdateQuality {
-        private lateinit var item: CommonItem
-
-        @BeforeEach
-        internal fun setUp() {
-            item = CommonItem("Sword", 15, 10)
-        }
 
         @Test
         internal fun `should decrease sell by days and quality by one`() {
+            var item = CommonItem("Sword", 15, 1)
             item.updateQuality()
 
             assertAll {
                 assertThat(item.name).isEqualTo("Sword")
                 assertThat(item.sellIn).isEqualTo(14)
-                assertThat(item.quality).isEqualTo(9)
+                assertThat(item.quality).isEqualTo(0)
             }
+        }
+
+        @Test
+        internal fun `should not decrease quality below zero`() {
+            var item = CommonItem("Sword", 15, 0)
+            item.updateQuality()
+
+            assertThat(item.quality).isEqualTo(0)
         }
     }
 }
