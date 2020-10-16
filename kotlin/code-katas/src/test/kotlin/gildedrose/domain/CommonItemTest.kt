@@ -3,7 +3,6 @@ package gildedrose.domain
 import assertk.assertAll
 import assertk.assertThat
 import assertk.assertions.isEqualTo
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
@@ -23,7 +22,7 @@ internal class CommonItemTest {
         @Test
         internal fun `should decrease sell by days and quality by one`() {
             var item = CommonItem("Sword", 15, 1)
-            item.updateQuality()
+            item.update()
 
             assertAll {
                 assertThat(item.name).isEqualTo("Sword")
@@ -35,7 +34,7 @@ internal class CommonItemTest {
         @Test
         internal fun `should not decrease quality below zero`() {
             var item = CommonItem("Sword", 15, 0)
-            item.updateQuality()
+            item.update()
 
             assertThat(item.quality).isEqualTo(0)
         }
