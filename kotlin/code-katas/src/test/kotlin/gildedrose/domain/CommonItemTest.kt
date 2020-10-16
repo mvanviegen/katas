@@ -1,7 +1,10 @@
 package gildedrose.domain
 
+import assertk.assertAll
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
 internal class CommonItemTest {
@@ -12,5 +15,26 @@ internal class CommonItemTest {
         assertThat(item.sellIn).isEqualTo(15)
         assertThat(item.quality).isEqualTo(10)
         assertThat(item.toString()).isEqualTo("Sword, 15, 10")
+    }
+
+    @Nested
+    inner class UpdateQuality {
+        private lateinit var item: CommonItem
+
+        @BeforeEach
+        internal fun setUp() {
+            item = CommonItem("Sword", 15, 10)
+        }
+
+        @Test
+        internal fun `should decrease sell by days and quality by one`() {
+            val result = item.updateQuality()
+
+            assertAll {
+                assertThat(result.name).isEqualTo("Sword")
+                assertThat(result.sellIn).isEqualTo(14)
+                assertThat(result.quality).isEqualTo(9)
+            }
+        }
     }
 }
