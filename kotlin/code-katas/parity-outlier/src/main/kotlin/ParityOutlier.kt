@@ -15,7 +15,7 @@ internal class ParityOutlier {
 }
 
 private fun Array<Int>.isEvenList(): Boolean {
-    return this[0].isEven() && this[1].isEven() || this[0].isEven() && this[2].isEven()
+    return this[0].isEven() && this[1].isEven() || this[0].isEven() && this[2].isEven()|| this[1].isEven() && this[2].isEven()
 }
 
 private fun Int.isEven(): Boolean {
