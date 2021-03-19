@@ -2,17 +2,21 @@ internal class ParityOutlier {
     infix fun find(numbers: List<Int>): Int {
         // check whether given list is (mostly) even or odd
 
-        if ((numbers[0].isEven() && numbers[1].isEven()) || (numbers[0].isEven() && numbers[2].isEven())) {
+        val evenArray = (numbers[0].isEven() && numbers[1].isEven()) || (numbers[0].isEven() && numbers[2].isEven())
+
+        if (evenArray) {
             // even array; should filter out non-even number
-            return numbers.filter { it % 2 != 0 }.get(0)
+            return numbers.filter { it.isOdd() }.first()
         }
 
-        if ((numbers[0].isOdd() && numbers[1].isOdd()) || (numbers[0].isOdd() && numbers[2].isOdd())) {
+        val oddArray = (numbers[0].isOdd() && numbers[1].isOdd()) || (numbers[0].isOdd() && numbers[2].isOdd())
+
+        if (oddArray) {
             // even array; should filter out non-even number
-            return numbers.filter { it % 2 == 0 }.get(0)
+            return numbers.filter { it.isEven() }.first()
         }
 
-        return numbers.get(0)
+        return numbers.first()
     }
 }
 
