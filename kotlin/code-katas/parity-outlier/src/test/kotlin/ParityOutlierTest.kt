@@ -38,7 +38,7 @@ internal class ParityOutlierTest {
     }
 
     @Test
-    internal fun `should return 17 apparently`() {
+    internal fun `should return the outlier no matter what position it is given in`() {
         val numbers = arrayOf(
             17,
             6,
