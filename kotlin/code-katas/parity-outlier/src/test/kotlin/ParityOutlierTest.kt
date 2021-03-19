@@ -1,5 +1,6 @@
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import kotlin.test.assertFails
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -19,8 +20,18 @@ internal class ParityOutlierTest {
     }
 
     @Test
+    internal fun `should throw exception given list with less than three units`() {
+        val result =
+            assertFails {
+                parityOutlier find listOf(1, 2)
+            }.message
+
+        assertThat(result).isEqualTo("Supplied list must contain atleast three units")
+    }
+
+    @Test
     internal fun `should return the odd number given list of even numbers`() {
-        val numbers = listOf(206847684,1056521,7,17,1901,21104421,7,1,35521,1,7781)
+        val numbers = listOf(206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781)
         val result = parityOutlier find numbers
 
         assertThat(result).isEqualTo(206847684)

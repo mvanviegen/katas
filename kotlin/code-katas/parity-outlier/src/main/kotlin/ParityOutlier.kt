@@ -1,23 +1,24 @@
 internal class ParityOutlier {
     infix fun find(numbers: List<Int>): Int {
-        // check whether given list is (mostly) even or odd
+        require(numbers.size >= 3) {
+            "Supplied list must contain atleast three units"
+        }
 
+        // check whether given list is (mostly) even or odd
         val evenArray = (numbers[0].isEven() && numbers[1].isEven()) || (numbers[0].isEven() && numbers[2].isEven())
 
-        if (evenArray) {
+        return if (evenArray) {
             // even array; should filter out non-even number
-            return numbers.filter { it.isOdd() }.first()
+            numbers.filter { it.isOdd() }.first()
+        } else {
+            // odd array; should filter out even number
+            numbers.filter { it.isEven() }.first()
         }
-
-        val oddArray = (numbers[0].isOdd() && numbers[1].isOdd()) || (numbers[0].isOdd() && numbers[2].isOdd())
-
-        if (oddArray) {
-            // even array; should filter out non-even number
-            return numbers.filter { it.isEven() }.first()
-        }
-
-        return numbers.first()
     }
+}
+
+private fun List<Int>.isEven() {
+
 }
 
 private fun Int.isEven(): Boolean {
