@@ -1,12 +1,12 @@
 internal class ParityOutlier {
-    infix fun find(numbers: List<Int>): Int {
+    infix fun find(numbers: Array<Int>): Int {
         require(numbers.size >= 3) {
             "Supplied list must contain atleast three units"
         }
         return findOutlier(numbers)
     }
 
-    private fun findOutlier(numbers: List<Int>) =
+    private fun findOutlier(numbers: Array<Int>) =
         if (numbers.isEvenList()) {
             numbers.first { it.isOdd() }
         } else {
@@ -14,7 +14,7 @@ internal class ParityOutlier {
         }
 }
 
-private fun List<Int>.isEvenList(): Boolean {
+private fun Array<Int>.isEvenList(): Boolean {
     return this[0].isEven() && this[1].isEven() || this[0].isEven() && this[2].isEven()
 }
 
