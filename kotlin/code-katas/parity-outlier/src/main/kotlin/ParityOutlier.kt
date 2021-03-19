@@ -3,22 +3,19 @@ internal class ParityOutlier {
         require(numbers.size >= 3) {
             "Supplied list must contain atleast three units"
         }
-
-        // check whether given list is (mostly) even or odd
-        val evenArray = (numbers[0].isEven() && numbers[1].isEven()) || (numbers[0].isEven() && numbers[2].isEven())
-
-        return if (evenArray) {
-            // even array; should filter out non-even number
-            numbers.filter { it.isOdd() }.first()
-        } else {
-            // odd array; should filter out even number
-            numbers.filter { it.isEven() }.first()
-        }
+        return findOutlier(numbers)
     }
+
+    private fun findOutlier(numbers: List<Int>) =
+        if (numbers.isEvenList()) {
+            numbers.first { it.isOdd() }
+        } else {
+            numbers.first { it.isEven() }
+        }
 }
 
-private fun List<Int>.isEven() {
-
+private fun List<Int>.isEvenList(): Boolean {
+    return this[0].isEven() && this[1].isEven() || this[0].isEven() && this[2].isEven()
 }
 
 private fun Int.isEven(): Boolean {
