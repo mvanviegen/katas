@@ -1,9 +1,5 @@
 package fizzbuzz
 
-fun main() {
-    FizzBuzz().translate(listOf(1, 2, 3, 4))
-}
-
 class FizzBuzz {
     fun translate(input: List<Int>): String {
         val result = input.map { number ->
@@ -23,4 +19,8 @@ class FizzBuzz {
         println(result)
         return result
     }
+}
+
+fun main() {
+    FizzBuzz().translate(listOf(1, 2, 3, 4))
 }
