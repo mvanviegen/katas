@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 
 Hi and welcome to team Gilded Rose. 
 
