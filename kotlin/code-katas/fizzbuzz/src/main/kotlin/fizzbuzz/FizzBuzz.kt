@@ -1,11 +1,14 @@
 package fizzbuzz
 
 class FizzBuzz {
-    fun parse(input: Int): String {
-        if(input == 3) return "Fizz"
-        if(input == 5) return "Buzz"
-        if(input == 15) return "FizzBuzz"
-        return input.toString()
+    fun parse(input: List<Int>): String {
+        return input.map {
+            var result = it.toString()
+            if(it % 3 == 0) result = "Fizz"
+            if(it % 5 == 0) result = "Buzz"
+            if(it % 15 == 0) result = "FizzBuzz"
+            result
+        }.joinToString(", ")
     }
 }
 
