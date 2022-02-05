@@ -25,4 +25,11 @@ internal class FizzBuzzTest {
 
         assertThat(result).isEqualTo("1")
     }
+
+    @Test
+    internal fun `should print FizzBuzz given multiples of fifteen`() {
+        val result = fizzBuzz.parse(15)
+
+        assertThat(result).isEqualTo("FizzBuzz")
+    }
 }
