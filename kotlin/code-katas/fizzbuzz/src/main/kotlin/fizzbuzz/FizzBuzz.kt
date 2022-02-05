@@ -1,7 +1,7 @@
 package fizzbuzz
 
 class FizzBuzz {
-    fun parse(input: List<Int>) =
+    infix fun parse(input: List<Int>) =
         input.map {
             when {
                 it % 15 == 0 -> "FizzBuzz"
